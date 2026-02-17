@@ -67,33 +67,39 @@ class AnimalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12.0), // Padding inside the border
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black, // Black border color
           width: 2.0, // Border width
         ),
-        borderRadius:
-            BorderRadius.circular(8.0), // Optional: rounded corners for aesthetics
       ),
       child: Column(
         children: <Widget>[
-          Text(
-            nombre,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          // Container for the animal name
+          Container(
+            padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0), // Apply padding to the Container
+            child: Text(
+              nombre,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
           // Borde negro entre el nombre y la imagen
           const Divider(
             color: Colors.black,
             thickness: 2.0,
-            height:
-                16.0, // Adjust height to control vertical spacing around the divider
+            height: 16.0, // Adjust height to control vertical spacing around the divider
+            indent: 0, // Ensure divider starts from the edge
+            endIndent: 0, // Ensure divider ends at the edge
           ),
-          Image.network(
-            urlImagen,
-            width: 115,
-            height: 115,
-            fit: BoxFit.cover,
+          // Container for the animal image
+          Container(
+            padding: const EdgeInsets.fromLTRB(12.0, 0, 12.0, 12.0), // Apply padding to the Container
+            child: Image.network(
+              urlImagen,
+              width: 125,
+              height: 125,
+              fit: BoxFit.cover,
+            ),
           ),
         ],
       ),
